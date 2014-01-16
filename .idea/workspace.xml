@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca7b9621-6805-4451-b21b-99b606f18627" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/README.rdoc" afterPath="$PROJECT_DIR$/README.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ratebeer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,10 +36,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.html">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="7" selection-start="147" selection-end="147" vertical-scroll-proportion="0.096878365" vertical-offset="0" max-vertical-offset="929">
+            <state line="1" column="7" selection-start="52" selection-end="52" vertical-scroll-proportion="0.016146393" vertical-offset="0" max-vertical-offset="929">
               <folding />
             </state>
           </provider>
@@ -67,6 +69,8 @@
         <option value="$PROJECT_DIR$/app/controllers/breweries_controller.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/README.rdoc" />
+        <option value="$PROJECT_DIR$/README.html" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -590,9 +594,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.html">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="7" selection-start="147" selection-end="147" vertical-scroll-proportion="0.096878365" vertical-offset="0" max-vertical-offset="929">
+        <state line="1" column="7" selection-start="52" selection-end="52" vertical-scroll-proportion="0.016146393" vertical-offset="0" max-vertical-offset="929">
           <folding />
         </state>
       </provider>
