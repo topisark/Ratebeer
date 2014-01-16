@@ -16,7 +16,7 @@
   <tbody>
     <% @breweries.each do |brewery| %>
       <tr>
-        
+
         <td><%= link_to brewery.name, brewery %></td>
         <td><%= brewery.year %></td>
         <td><%= link_to 'Edit', edit_brewery_path(brewery) %></td>
@@ -27,5 +27,7 @@
 </table>
 
 <br>
-
 <%= link_to 'New Brewery', new_brewery_path %>
+<br>
+ <%= link_to "List of beers", beers_path %>
+
