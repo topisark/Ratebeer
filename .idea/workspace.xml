@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca7b9621-6805-4451-b21b-99b606f18627" name="Default" comment="" />
+    <list default="true" id="ca7b9621-6805-4451-b21b-99b606f18627" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/breweries/index.html.erb" afterPath="$PROJECT_DIR$/app/views/breweries/index.html.erb" />
+    </list>
     <ignored path="ratebeer.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,7 +46,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/breweries/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="7" selection-start="35" selection-end="35" vertical-scroll-proportion="0.03314917" vertical-offset="0" max-vertical-offset="905">
+            <state line="19" column="36" selection-start="368" selection-end="368" vertical-scroll-proportion="0.31491712" vertical-offset="0" max-vertical-offset="905">
               <folding />
             </state>
           </provider>
@@ -75,6 +77,7 @@
         <option value="$PROJECT_DIR$/app/models/brewery.rb" />
         <option value="$PROJECT_DIR$/app/models/beer.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/app/views/breweries/index.html.erb" />
       </list>
     </option>
   </component>
@@ -468,7 +471,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/breweries/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="7" selection-start="35" selection-end="35" vertical-scroll-proportion="0.03314917" vertical-offset="0" max-vertical-offset="905">
+        <state line="19" column="36" selection-start="368" selection-end="368" vertical-scroll-proportion="0.31491712" vertical-offset="0" max-vertical-offset="905">
           <folding />
         </state>
       </provider>
