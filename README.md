@@ -1,4 +1,5 @@
-Web-palvelinohjelmointi (Ruby-on-Rails) 2014
+Web-palvelinohjelmointi (Ruby-on-Rails)
 =======
 Topi Sarkkinen
+
 Heroku: http://topinoluet.herokuapp.com/breweries
