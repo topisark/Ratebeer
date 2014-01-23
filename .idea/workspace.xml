@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ca7b9621-6805-4451-b21b-99b606f18627" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/beer.rb" afterPath="$PROJECT_DIR$/app/models/beer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/ratings/index.html.erb" afterPath="$PROJECT_DIR$/app/views/ratings/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/rating.rb" afterPath="$PROJECT_DIR$/app/models/rating.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/ratings_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/ratings_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/beers/show.html.erb" afterPath="$PROJECT_DIR$/app/views/beers/show.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ratebeer.iws" />
@@ -66,19 +62,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/beers/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="9" selection-start="422" selection-end="422" vertical-scroll-proportion="0.37288135" vertical-offset="0" max-vertical-offset="885">
+            <state line="21" column="97" selection-start="410" selection-end="410" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="495">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="beer.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="beer.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/beer.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="16" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+            <state line="8" column="0" selection-start="218" selection-end="218" vertical-scroll-proportion="0.1320132" vertical-offset="0" max-vertical-offset="909">
               <folding />
             </state>
           </provider>
@@ -132,8 +128,8 @@
         <option value="$PROJECT_DIR$/app/controllers/ratings_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/ratings/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/rating.rb" />
-        <option value="$PROJECT_DIR$/app/models/beer.rb" />
         <option value="$PROJECT_DIR$/app/views/beers/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/beer.rb" />
       </list>
     </option>
   </component>
@@ -753,16 +749,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/beer.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/beers/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="16" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+        <state line="21" column="97" selection-start="410" selection-end="410" vertical-scroll-proportion="-13.125" vertical-offset="0" max-vertical-offset="495">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/beers/show.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/models/beer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="9" selection-start="422" selection-end="422" vertical-scroll-proportion="0.37288135" vertical-offset="0" max-vertical-offset="885">
+        <state line="8" column="0" selection-start="218" selection-end="218" vertical-scroll-proportion="0.1320132" vertical-offset="0" max-vertical-offset="909">
           <folding />
         </state>
       </provider>
