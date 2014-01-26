@@ -26,6 +26,14 @@
 </table>
 
 <p>
+  <% if @brewery.ratings.empty? %>
+      Brewery has no rated beers.
+  <% else %>
+      <%= "Has #{pluralize(@brewery.ratings.all.count.to_s, "rating")}, average #{@brewery.average_rating.to_s}" %>
+  <% end %>
+</p>
+
+<p>
   <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
   <%= link_to 'Back', breweries_path %>
 </p>
