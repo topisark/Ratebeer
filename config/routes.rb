@@ -9,8 +9,8 @@ Ratebeer::Application.routes.draw do
   get 'ratings', to: 'ratings#index'
   get 'exercises', to: 'exercises#index'
   get 'exercises/exercise1', to: 'exercises#exercise1'
-  get 'ratings/new', to:'ratings#new'
-  post 'ratings', to: 'ratings#create'
+
+  resources :ratings, only: [:index, :new, :create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
