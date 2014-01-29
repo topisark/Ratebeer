@@ -5,5 +5,16 @@
   <%= @user.username %>
 </p>
 
+<%= "Has "  + pluralize(@user.ratings.all.count.to_s, "rating") + ", average " + @user.average_rating.to_s %>
+
+<p>
+  <b>Ratings: </b>
+<ul>
+  <% @user.ratings.each do |r| %>
+      <li ><%= r %> <%= link_to 'Delete', r, method: :delete %> </li>
+  <% end %>
+</ul>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
