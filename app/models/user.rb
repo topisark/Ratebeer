@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :ratings
   include RatingAverage
+  has_many :ratings
+  validates :username, uniqueness: true, length: { minimum: 3, maximum: 10 }
 end
