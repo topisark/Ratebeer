@@ -3,5 +3,5 @@ class Brewery < ActiveRecord::Base
   has_many :ratings, through: :beers, dependent: :destroy
   include RatingAverage
   validates :name, presence: true
-  validates :year, numericality: {only_integer: true, greater_than: 1041, less_than: 2015 }
+  validates :year, :inclusion => { :in => proc { 1042..0.years.ago.year } }
 end
