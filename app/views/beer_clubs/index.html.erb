@@ -1,28 +1,33 @@
-<h1>Listing beer_clubs</h1>
+<h1>Listing BeerClubs</h1>
 
 <table>
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Founded</th>
-      <th>City</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Founded</th>
+    <th>City</th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @beer_clubs.each do |beer_club| %>
+  <% @beer_clubs.each do |beer_club| %>
       <tr>
-        <td><%= beer_club.name %></td>
+        <td><%= link_to beer_club.name, beer_club %></td>
         <td><%= beer_club.founded %></td>
         <td><%= beer_club.city %></td>
-        <td><%= link_to 'Show', beer_club %></td>
-        <td><%= link_to 'Edit', edit_beer_club_path(beer_club) %></td>
-        <td><%= link_to 'Destroy', beer_club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if not session[:user_id].nil? %>
+            <td>
+
+              <%= form_for @membership, url: {action: "create"} do |f| %>
+                  <%= f.text_field "moi" %>
+                  <%= f.text_area "moi" %>
+                  <%= f.submit %>
+              <% end %>
+
+            </td>
+        <% end %>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
