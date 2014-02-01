@@ -16,5 +16,18 @@
 </ul>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <% if @user.memberships.empty? %>
+      User has not joined any clubs.
+  <% else %>
+      <b>Member of:</b>
+      <ul>
+        <% @user.memberships.each do |m| %>
+            <li> <%= link_to m.beer_club.name, m.beer_club %> </li>
+        <% end %>
+      </ul>
+  <% end %>
+  </p>
+
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>

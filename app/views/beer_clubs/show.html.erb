@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @beer_club.name %>
+<h2><%= @beer_club.name %></h2>
 </p>
 
 <p>
@@ -14,6 +13,19 @@
   <strong>City:</strong>
   <%= @beer_club.city %>
 </p>
+
+
+<% if @beer_club.memberships.empty? %>
+    <p> The club has no members. :(</p>
+<% else %>
+    <strong>Members:</strong>
+    <ul>
+      <% @beer_club.memberships.each do |m| %>
+          <li><%= link_to "#{m.user.to_s}", m.user %></li>
+      <% end %>
+    </ul>
+<% end %>
+
 
 <%= link_to 'Edit', edit_beer_club_path(@beer_club) %> |
 <%= link_to 'Back', beer_clubs_path %>

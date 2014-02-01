@@ -17,6 +17,7 @@
   <p> <% if not session[:user_id].nil? %>
         <%= link_to current_user.username, current_user %>
         <%= link_to 'Rate a beer!', new_rating_path %>
+        <%= link_to 'Join a club!', new_membership_path %>
         <%= link_to 'Log out', signout_path, method: :delete%>
     <% else %>
         <%= link_to 'Log in', new_session_path %>

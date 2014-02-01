@@ -18,11 +18,7 @@
         <% if not session[:user_id].nil? %>
             <td>
 
-              <%= form_for @membership, url: {action: "create"} do |f| %>
-                  <%= f.text_field "moi" %>
-                  <%= f.text_area "moi" %>
-                  <%= f.submit %>
-              <% end %>
+
 
             </td>
         <% end %>
