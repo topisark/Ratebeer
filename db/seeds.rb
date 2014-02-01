@@ -10,4 +10,4 @@ b2.beers.create name:"X Porter", style:"Porter"
 b3.beers.create name:"Hefezeizen", style:"Weizen"
 b3.beers.create name:"Helles", style:"Lager"
 
-users.create username:"Topi"
+User.create username:"Topi"
