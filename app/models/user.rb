@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :raters, through: :ratings, source: :user
   has_many :memberships
   has_many :beer_clubs, through: :memberships
+  has_secure_password
   validates :username, uniqueness: true, length: { minimum: 3, maximum: 15 }
 
   def to_s
