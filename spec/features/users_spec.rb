@@ -3,9 +3,7 @@ require 'spec_helper'
 include OwnTestHelper
 
 describe "User" do
-  before :each do
-    FactoryGirl.create :user
-  end
+  let!(:user) { FactoryGirl.create :user }
 
   describe "who has signed up" do
     it "can signin with right credentials" do
@@ -35,4 +33,21 @@ describe "User" do
       click_button('Create User')
     }.to change{User.count}.by(1)
   end
+
+  it "sees his own ratings" do
+    sign_in(username:"Pekka", password:"Foobar1")
+    create_beer_with_rating(15, user)
+    visit user_path(user)
+    expect(page).to have_content 'Has 1 rating'
+  end
+
+  it "can delete his own ratings" do
+    sign_in(username:"Pekka", password:"Foobar1")
+    create_beer_with_rating(15, user)
+    visit user_path(user)
+    expect{
+      click_link('Delete')
+    }.to change{Rating.count}.by(-1)
+  end
 end
+
