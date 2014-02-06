@@ -13,7 +13,4 @@ describe Brewery do
     brewery = Brewery.create  year:1674
     brewery.should_not be_valid
   end
-
-
-
 end
