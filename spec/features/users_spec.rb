@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+include OwnTestHelper
+
 describe "User" do
   before :each do
     FactoryGirl.create :user
@@ -7,10 +9,7 @@ describe "User" do
 
   describe "who has signed up" do
     it "can signin with right credentials" do
-      visit signin_path
-      fill_in('username', with:'Pekka')
-      fill_in('password', with:'Foobar1')
-      click_button('Log in')
+      sign_in(username:"Pekka", password:"Foobar1")
 
       expect(page).to have_content 'Welcome back!'
       expect(page).to have_content 'Pekka'

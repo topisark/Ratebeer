@@ -43,6 +43,7 @@ describe User do
     it "is the one with highest rating if several rated" do
       create_beers_with_ratings(10, 25, 15, 21, user)
       best = create_beer_with_rating(33, user)
+
       expect(user.favorite_beer).to eq(best)
     end
   end
@@ -77,5 +78,5 @@ end
 def create_beer_with_rating(score, user)
   beer = FactoryGirl.create(:beer)
   FactoryGirl.create(:rating, score:score, beer:beer, user:user)
-  beer
+  return beer
 end

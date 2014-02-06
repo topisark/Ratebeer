@@ -5,7 +5,7 @@
   <%= @user.username %>
 </p>
 
-<%= "Has "  + pluralize(@user.ratings.all.count.to_s, "rating") + ", average " + @user.average_rating.to_s %>
+<%= "Has "  + pluralize(@user.ratings.to_a.count.to_s, "rating") + ", average " + @user.average_rating.to_s %>
 
 <p>
   <b>Ratings: </b>
