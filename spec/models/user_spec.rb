@@ -14,6 +14,20 @@ describe User do
     expect(User.count).to eq(0)
   end
 
+  it "is not saved with a short password" do
+     user = User.create username:"Pekka", password:"moi", password_confirmation:"moi"
+
+    expect(user).not_to be_valid
+    expect(User.count).to eq(0)
+  end
+
+  it "is not saved with simple password" do
+    user = User.create username:"Pekka", password:"moimoimoimoi", password_confirmation:"moimoimoimoi"
+
+    expect(user).not_to be_valid
+    expect(User.count).to eq(0)
+  end
+
   describe "with a proper password" do
     let(:user){ User.create username:"Pekka", password:"Secret1", password_confirmation:"Secret1" }
 
