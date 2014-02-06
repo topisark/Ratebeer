@@ -9,5 +9,7 @@
 </ul>
 
 <p>
-  <%= link_to('Add a new rating', new_rating_path) %>
+  <% unless current_user.nil? %>
+      <%= link_to('Add a new rating', new_rating_path) %>
+  <% end %>
 </p>
