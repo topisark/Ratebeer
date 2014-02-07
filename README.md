@@ -4,4 +4,4 @@ Topi Sarkkinen
 
 Heroku: http://topinoluet.herokuapp.com/breweries
 
-[![Build Status](https://travis-ci.org/topisark/ratebeer-public.png)](https://travis-ci.org/topisark/ratebeer-public)
+[![Build Status](https://travis-ci.org/topisark/Ratebeer.png?branch=master)](https://travis-ci.org/topisark/Ratebeer)
