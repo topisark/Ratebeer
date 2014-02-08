@@ -17,4 +17,21 @@ class User < ActiveRecord::Base
     ratings.order('score desc').limit(1).first.beer
   end
 
+  def favorite_style
+    return nil if ratings.empty?
+    styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+    greatest = 0
+    favstyle = nil
+    styles.each do |style|
+      styleRatings = ratings.select{|r| r.beer.style == style}
+      sum = styleRatings.inject(0.0){|result, rating| result+rating.score }
+      average = sum/styleRatings.count
+      if average > greatest
+        greatest = average
+        favstyle = style
+      end
+    end
+    return favstyle
+  end
+
 end
