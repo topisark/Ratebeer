@@ -1,6 +1,13 @@
 require 'spec_helper'
 
+include OwnTestHelper
+
 describe Beer do
+  let!(:user) { FactoryGirl.create :user }
+
+  before :each do
+    sign_in(username:"Pekka", password:"Foobar1")
+  end
 
   it "can't be created if name not valid" do
     visit new_beer_path
