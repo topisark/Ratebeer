@@ -20,6 +20,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'httparty'
 gem 'byebug', group: [:development, :test]
 
 gem 'bcrypt-ruby', '~> 3.1.2'
