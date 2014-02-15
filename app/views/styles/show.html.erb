@@ -11,7 +11,7 @@
     <p>
     <ul>
       <% @style.beers.each do |b| %>
-          <li> <%= b %> </li>
+          <li> <%= link_to b.name, b %> of <%= link_to b.brewery.name, b.brewery %></li>
       <% end %>
     </ul>
     </p>
