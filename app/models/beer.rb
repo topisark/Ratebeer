@@ -5,6 +5,7 @@ class Beer < ActiveRecord::Base
   has_many :users, through: :ratings
   include RatingAverage
   validates :name, presence: true
+  validates :style_id, presence: true
 
   def to_s
     return "#{self.name} (#{self.brewery.name})"
