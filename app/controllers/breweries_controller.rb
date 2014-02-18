@@ -7,6 +7,11 @@ class BreweriesController < ApplicationController
   # GET /breweries.json
   def index
     @breweries = Brewery.all
+    order = params[:order] || 'name'
+    case order
+      when 'name' then @breweries.sort_by!{|b| b.name}
+      when 'year' then @breweries.sort_by!{|b| b.year}
+    end
   end
 
   # GET /breweries/1
@@ -65,12 +70,12 @@ class BreweriesController < ApplicationController
 
 
 # Use callbacks to share common setup or constraints between actions.
-def set_brewery
-  @brewery = Brewery.find(params[:id])
-end
+  def set_brewery
+    @brewery = Brewery.find(params[:id])
+  end
 
 # Never trust parameters from the scary internet, only allow the white list through.
-def brewery_params
-  params.require(:brewery).permit(:name, :year)
-end
+  def brewery_params
+    params.require(:brewery).permit(:name, :year)
+  end
 end
