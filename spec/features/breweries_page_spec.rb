@@ -1,6 +1,25 @@
 require 'spec_helper'
 
 describe "Breweries page" do
+
+  before :all do
+    self.use_transactional_fixtures = false
+    WebMock.disable_net_connect!(allow_localhost:true)
+  end
+
+  before :each do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.start
+  end
+
+  after :each do
+    DatabaseCleaner.clean
+  end
+
+  after :all do
+    self.use_transactional_fixtures = true
+  end
+
   it "should not have any before been created" do
     visit breweries_path
     expect(page).to have_content 'Listing breweries'
@@ -18,7 +37,7 @@ describe "Breweries page" do
       visit breweries_path
     end
 
-    it "lists the existing breweries and their total number" do
+    it "lists the existing breweries and their total number",js:true do
 
       visit breweries_path
 
@@ -28,15 +47,6 @@ describe "Breweries page" do
       end
     end
 
-    it "allows user to navigate to page of a Brewery" do
-
-      visit breweries_path
-
-      click_link "Koff"
-
-      expect(page).to have_content "Koff"
-      expect(page).to have_content "Established 1897"
-    end
 
   end
 end

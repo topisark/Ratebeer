@@ -8,8 +8,23 @@ describe "Rating" do
   let!(:beer2) { FactoryGirl.create :beer, name:"Karhu", brewery:brewery }
   let!(:user) { FactoryGirl.create :user }
 
+  before :all do
+    self.use_transactional_fixtures = false
+    WebMock.disable_net_connect!(allow_localhost:true)
+  end
+
   before :each do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.start
     sign_in(username:"Pekka", password:"Foobar1")
+  end
+
+  after :each do
+    DatabaseCleaner.clean
+  end
+
+  after :all do
+    self.use_transactional_fixtures = true
   end
 
   it "when given, is registered to the beer and user who is signed in" do
