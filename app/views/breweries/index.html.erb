@@ -2,29 +2,23 @@
 
 <p>Number of breweries: <%= @breweries.count %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= link_to 'Name', breweries_path(order:'name') %> </th>
-      <th><%= link_to 'Year', breweries_path(order:'year') %> </th>
+<div ng-app ng-controller="BreweriesController">
+  <p>Search: <input ng-model="searchText"></p>
+  <table>
+    <thead>
+    <th> <a ng-click="click('name')">Name</a> </th>
+    <th> <a ng-click="click('year')">Year</a> </th>
+    <th> <a ng-click="click('beers.count')">Beers</a> </th>
+    </thead>
+    <tr ng-repeat="brewery in breweries | orderBy:order | filter:searchText">
+      <td> <a ng-href="breweries/{{brewery.id}}"> {{brewery.name}} </a> </td>
+      <td>{{brewery.year}}</td>
+      <td>{{brewery.beers.count}}</td>
     </tr>
-  </thead>
-
-  <tbody>
-    <% @breweries.each do |brewery| %>
-      <tr>
-
-        <td><%= link_to brewery.name, brewery %></td>
-        <td><%= brewery.year %></td>
-        <td><%= link_to 'Edit', edit_brewery_path(brewery) if current_user %></td>
-        <td><%= link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } if current_user && current_user.admin? %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  </table>
+</div>
 
 <br>
 <%= link_to 'New Brewery', new_brewery_path if current_user %>
 <br>
- <%= link_to "List of beers", beers_path %>
-
+<%= link_to "List of beers", beers_path %>
