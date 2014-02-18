@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
+//= require angular
 //= require_tree .
 
 function BeersController($scope, $http) {
@@ -30,3 +31,4 @@ function BeersController($scope, $http) {
 
     $scope.searchText = '';
 }
+

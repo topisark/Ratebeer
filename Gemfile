@@ -21,6 +21,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'angularjs-rails'
 gem 'jquery-turbolinks'
 gem 'httparty'
 gem 'byebug', group: [:development, :test]
