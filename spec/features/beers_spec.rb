@@ -14,7 +14,7 @@ describe Beer do
     visit new_beer_path
     click_button "Create Beer"
     expect(Beer.count).to eq(0)
-    expect(page).to have_content "prohibited this beer from being saved"
+    expect(page).to have_content "can't be blank"
   end
 
   it "can be created if info valid" do

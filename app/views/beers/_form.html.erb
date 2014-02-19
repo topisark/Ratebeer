@@ -2,6 +2,6 @@
     <%= f.text_field :name, hide_label: :true, placeholder: "Name"%>
     <%= f.select :style_id, options_from_collection_for_select(@styles, :id, :to_s) %>
     <%= f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name, selected: @beer.brewery_id) %>
-    <%= f.submit "Create beer", class: "btn btn-primary" %>
+    <%= f.submit "Create Beer", class: "btn btn-primary" %>
 <% end %>
 
