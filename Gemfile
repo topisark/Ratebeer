@@ -26,7 +26,13 @@ end
 gem 'angularjs-rails'
 gem 'jquery-turbolinks'
 gem 'httparty'
+gem 'bootstrap_form'
 gem 'byebug', group: [:development, :test]
+
+gem 'bootstrap-sass'
+group :development do
+  gem 'rails_layout'
+end
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 

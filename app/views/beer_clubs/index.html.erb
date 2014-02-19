@@ -1,6 +1,6 @@
 <h1>Listing BeerClubs</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
   <tr>
     <th>Name</th>
@@ -18,15 +18,11 @@
         <% if not session[:user_id].nil? %>
             <td>
 
-
-
             </td>
         <% end %>
       </tr>
   <% end %>
   </tbody>
 </table>
-
-<br>
 
 <%= link_to 'New Beer club', new_beer_club_path %>

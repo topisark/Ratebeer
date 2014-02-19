@@ -1,27 +1,7 @@
-<%= form_for(@beer) do |f| %>
-  <% if @beer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
-
-      <ul>
-      <% @beer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.select :style_id, options_from_collection_for_select(@styles, :id, :to_s) %><br>
-  </div>
-  <div class="field">
+<%= bootstrap_form_for(@beer) do |f| %>
+    <%= f.text_field :name, hide_label: :true, placeholder: "Name"%>
+    <%= f.select :style_id, options_from_collection_for_select(@styles, :id, :to_s) %>
     <%= f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name, selected: @beer.brewery_id) %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit "Create beer", class: "btn btn-primary" %>
 <% end %>
+
