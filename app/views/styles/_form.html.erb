@@ -1,25 +1,11 @@
-<%= form_for(@style) do |f| %>
-  <% if @style.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@style.errors.count, "error") %> prohibited this style from being saved:</h2>
-
-      <ul>
-      <% @style.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= bootstrap_form_for(@style) do |f| %>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "Name" %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, placeholder: "Description" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

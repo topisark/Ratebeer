@@ -1,29 +1,14 @@
-<%= form_for(@beer_club) do |f| %>
-  <% if @beer_club.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@beer_club.errors.count, "error") %> prohibited this beer_club from being saved:</h2>
-
-      <ul>
-      <% @beer_club.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= bootstrap_form_for(@beer_club) do |f| %>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "Name" %>
   </div>
   <div class="field">
-    <%= f.label :founded %><br>
-    <%= f.number_field :founded %>
+    <%= f.number_field :founded, placeholder: "Founded" %>
   </div>
   <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, placeholder: "City" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

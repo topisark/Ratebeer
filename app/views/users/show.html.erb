@@ -1,9 +1,5 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @user.username %></h1>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
 
 <%= "Has "  + pluralize(@user.ratings.to_a.count.to_s, "rating") + ", average " + @user.average_rating.to_s %>
 
