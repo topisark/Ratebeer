@@ -44,7 +44,7 @@ describe "Rating" do
   it "displays the correct amount of ratings" do
     create_beer_with_rating(10, user)
     visit ratings_path
-    expect(page).to have_content("Number of ratings: 1")
+    expect(page).to have_content("Total ratings: 1")
     expect(page).to have_content("anonymous 10")
   end
 end
