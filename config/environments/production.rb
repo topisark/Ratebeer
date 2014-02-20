@@ -1,8 +1,6 @@
 Ratebeer::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  config.assets.js_compressor = Uglifier.new(mangle: false)
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -25,7 +23,7 @@ Ratebeer::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS.
-  config.assets.compress = false
+  config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
