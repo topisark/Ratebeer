@@ -1,6 +1,9 @@
 Ratebeer::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Compressor for JavaScript
+  config.assets.js_compressor = Sprockets::LazyCompressor.new { Uglifier.new(:mangle => false) }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
