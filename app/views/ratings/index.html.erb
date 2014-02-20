@@ -1,27 +1,57 @@
-<h2>Ratings</h2>
+<h1>Rating statistics</h1>
 
-<p>Total ratings: <%= @ratings.count %> </p>
+<b>Total ratings: <%= @ratings.count %> </b>
 
-<b>The most recent ratings:</b>
-<ul>
-  <% @ratings.recent.each do |rating| %>
-      <li> <%= link_to rating.beer.name, rating.beer %>  by <%= link_to rating.user.username, rating.user %> </li>
-  <%end%>
-</ul>
+<div class="row">
+  <div class="col-md-3">
+    <h3>Best breweries by rating</h3>
+    <%= render 'list', objects: @topBreweries %>
+  </div>
+  <div class="col-md-3">
+    <h3>Best beers by rating</h3>
+    <%= render 'list', objects: @topBeers %>
+  </div>
+</div>
 
-<b>Top 3 breweries by rating:</b>
-<ul>
-  <% @topBreweries.each do |b| %>
-      <li> <%= link_to b.name, b %> <%= b.average_rating %> </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Most active users</h3>
+    <table class="table table-hover">
+      <th></th>
+      <th>favorite beer</th>
+      <th>favorite brewery</th>
+      <th>favorite style</th>
+      <th>ratings</th>
+      <% @topUsers.each do |u| %>
+          <tr>
+            <td><b><%= link_to u.username, u %></b></td>
+            <td> <%= link_to u.favorite_beer, u.favorite_beer if u.favorite_beer %> </td>
+            <td> <%= link_to u.favorite_brewery, u.favorite_brewery if u.favorite_brewery %> </td>
+            <td> <%= link_to u.favorite_style, u.favorite_style if u.favorite_style %> </td>
+            <td><%= u.ratings.count %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
 
-<b>Top 3 beers by rating:</b>
-<ul>
-  <% @topBeers.each do |b| %>
-      <li> <%= link_to b.name, b %> <%= b.average_rating %> </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-3">
+    <h3>Most recent ratings</h3>
+    <table class="table table-hover">
+      <th></th>
+      <th>beer</th>
+      <th>score</th>
+      <% @ratings.recent.each do |rating| %>
+          <tr>
+            <td> <%= link_to rating.user.username, rating.user %> </td>
+            <td> <%= link_to rating.beer.name, rating.beer %> </td>
+            <td> <%= rating.score %> </td>
+          </tr>
+      <%end%>
+    </table>
+  </div>
+</div>
 
 <p>
   <% unless current_user.nil? %>

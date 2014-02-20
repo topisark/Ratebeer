@@ -8,7 +8,7 @@ class Beer < ActiveRecord::Base
   validates :style_id, presence: true
 
   def to_s
-    return "#{self.name} (#{self.brewery.name})"
+    return name
   end
 
   def self.top(n)

@@ -1,9 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @beer.name %>
-</p>
+<h1><%= @beer.name %></h1>
 
 <p>
   <strong>Style:</strong>
@@ -16,25 +11,29 @@
 </p>
 
 <p>
-<% if @beer.ratings.empty? %>
-    Beer has not yet been rated!
-<% else %>
-    <%= "Has "  + pluralize(@beer.ratings.all.count.to_s, "rating") + ", average " + @beer.average_rating.to_s %>
-<% end %>
+  <% if @beer.ratings.empty? %>
+      Beer has not yet been rated!
+  <% else %>
+      <%= "Has "  + pluralize(@beer.ratings.all.count.to_s, "rating") + ", average " + @beer.average_rating.to_s %>
+  <% end %>
 </p>
 
 <% if current_user %>
 
     <h4>Rate this beer!</h4>
+    <div class="row">
+      <div class="col-md-3">
+        <%= bootstrap_form_for(@rating) do |f| %>
+            <%= f.hidden_field :beer_id %>
+            <%= f.number_field :score, placeholder: "score" %>
+            <%= f.submit class: "btn btn-primary"%>
+        <% end %>
+      </div>
+    </div>
 
-    <%= form_for(@rating) do |f| %>
-        <%= f.hidden_field :beer_id %>
-        <%= f.number_field :score %>
-        <%= f.submit %>
-    <% end %>
-
+    <br>
     <p>
-    <%= link_to 'Edit', edit_beer_path(@beer) %>
+      <%= link_to 'Edit', edit_beer_path(@beer) %>
     </p>
 
 <% end %>

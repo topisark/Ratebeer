@@ -12,26 +12,43 @@ class User < ActiveRecord::Base
     return "#{self.username}"
   end
 
+  def self.top(n)
+    top = User.all.sort_by{|u| u.ratings.count}
+    top = top.reverse
+    return top.first(n)
+  end
+
   def favorite_beer
     return nil if ratings.empty?
     ratings.order('score desc').limit(1).first.beer
   end
 
+  def favorite_brewery
+    favorite :brewery
+  end
+
   def favorite_style
+    favorite :style
+  end
+
+  private
+
+  def favorite(category)
     return nil if ratings.empty?
-    styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
-    greatest = 0
-    favstyle = nil
-    styles.each do |style|
-      styleRatings = ratings.select{|r| r.beer.style == style}
-      sum = styleRatings.inject(0.0){|result, rating| result+rating.score }
-      average = sum/styleRatings.count
-      if average > greatest
-        greatest = average
-        favstyle = style
-      end
+    rating_pairs = rated(category).inject([]) do |pairs, item|
+      pairs << [item, rating_average(category, item)]
     end
-    return favstyle
+    rating_pairs.sort_by { |s| s.last }.last.first
+  end
+
+  def rated(category)
+    ratings.map{ |r| r.beer.send(category) }.uniq
+  end
+
+  def rating_average(category, item)
+    ratings_of_item = ratings.select{ |r|r.beer.send(category)==item }
+    return 0 if ratings_of_item.empty?
+    ratings_of_item.inject(0.0){ |sum ,r| sum+r.score } / ratings_of_item.count
   end
 
 end
