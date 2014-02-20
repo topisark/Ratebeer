@@ -38,6 +38,10 @@ function BreweriesController($scope, $http) {
         $scope.breweries = data;
     });
 
+    $http.get('breweries.json').success( function(data, status, headers, config) {
+        $scope.testbreweries = data;
+    });
+
     $scope.order = 'name';
 
     $scope.click = function (order){
@@ -47,4 +51,8 @@ function BreweriesController($scope, $http) {
 
     $scope.searchText = '';
 }
+
+
+
+
 

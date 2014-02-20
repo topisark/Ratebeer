@@ -1,6 +1,8 @@
-<h1>Listing breweries</h1>
+<h1>Breweries</h1>
 
-<p>Number of breweries: <%= @breweries.count %></p>
+<h2>Active</h2>
+
+<p>Number of active breweries: <%= @active_breweries.count %></p>
 
 <div ng-app ng-controller="BreweriesController">
   <p><input type="text" class="form-control" placeholder="Search" ng-model="searchText"></p>
@@ -10,13 +12,37 @@
     <th> <a ng-click="click('year')">Year</a> </th>
     <th> <a ng-click="click('beers.count')">Beers</a> </th>
     </thead>
-    <tr ng-repeat="brewery in breweries | orderBy:order | filter:searchText">
+    <tr ng-repeat="brewery in breweries | orderBy:order | filter:searchText | filter:'true'">
       <td> <a ng-href="breweries/{{brewery.id}}"> {{brewery.name}} </a> </td>
       <td>{{brewery.year}}</td>
       <td>{{brewery.beers.count}}</td>
     </tr>
   </table>
 </div>
+
+<h2>Retired</h2>
+
+<p>Number of retired breweries: <%= @retired_breweries.count %></p>
+
+<div ng-app ng-controller="BreweriesController">
+  <p><input type="text" class="form-control" placeholder="Search" ng-model="searchText"></p>
+  <table class="table table-hover">
+    <thead>
+    <th> <a ng-click="click('name')">Name</a> </th>
+    <th> <a ng-click="click('year')">Year</a> </th>
+    <th> <a ng-click="click('beers.count')">Beers</a> </th>
+    </thead>
+    <!--Molemmat tyhjiä :(-->
+    {{breweries}}
+    {{testbreweries}}
+    <tr ng-repeat="brewery in testbreweries | orderBy:order | filter:searchText">
+      <td> <a ng-href="breweries/{{brewery.id}}"> {{brewery.name}} </a> </td>
+      <td>{{brewery.year}}</td>
+      <td>{{brewery.beers.count}}</td>
+    </tr>
+  </table>
+</div>
+
 
 <br>
 <%= link_to 'New Brewery', new_brewery_path if current_user %>

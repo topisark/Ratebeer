@@ -1,8 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-<h2><%= @brewery.name %></h2>
-</p>
+<h2><%= @brewery.name %>
+  <% if not @brewery.active  %>
+      <span class="label label-info">Retired</span>
+  <% end %>
+</h2>
 
 <p>
   <i><%= "Established  #{@brewery.year}" %></i>
