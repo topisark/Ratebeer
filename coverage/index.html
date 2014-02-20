@@ -14,7 +14,7 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-19T12:25:51+02:00">2014-02-19T12:25:51+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2014-02-20T12:05:29+02:00">2014-02-20T12:05:29+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.7
+         1.79
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>10</td>
         <td>9</td>
         <td>1</td>
-        <td>19.4</td>
+        <td>20.3</td>
       </tr>
       
       <tr>
@@ -77,7 +77,7 @@
         <td>38</td>
         <td>17</td>
         <td>21</td>
-        <td>1.2</td>
+        <td>2.2</td>
       </tr>
       
       <tr>
@@ -452,8 +452,8 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="105" data-linenumber="8">
-          <span class="hits">105</span>
+        <li class="covered" data-hits="114" data-linenumber="8">
+          <span class="hits">114</span>
           
           <code class="ruby">    return nil if session[:user_id].nil?</code>
         </li>
@@ -1202,26 +1202,26 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="9">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="14" data-linenumber="9">
+          <span class="hits">14</span>
           
           <code class="ruby">    @breweries = Brewery.all</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="10">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="14" data-linenumber="10">
+          <span class="hits">14</span>
           
           <code class="ruby">    order = params[:order] || &#39;name&#39;</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="11">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="14" data-linenumber="11">
+          <span class="hits">14</span>
           
           <code class="ruby">    case order</code>
         </li>
       
-        <li class="covered" data-hits="17" data-linenumber="12">
-          <span class="hits">17</span>
+        <li class="covered" data-hits="28" data-linenumber="12">
+          <span class="hits">28</span>
           
           <code class="ruby">      when &#39;name&#39; then @breweries.sort_by!{|b| b.name}</code>
         </li>
@@ -1379,7 +1379,7 @@
         <li class="missed" data-hits="0" data-linenumber="38">
           
           
-          <code class="ruby">        format.html { redirect_to @brewery, notice: &#39;Brewery was successfully created.&#39; }</code>
+          <code class="ruby">        format.html { redirect_to breweries_path, notice: &#39;Brewery was successfully created.&#39; }</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="39">
@@ -2105,7 +2105,7 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">      redirect_to :back, notice: &quot;Username and password do not match!&quot;</code>
+          <code class="ruby">      redirect_to :back, alert: &quot;Username and password do not match!&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -5033,13 +5033,13 @@
         <li class="covered" data-hits="1" data-linenumber="16">
           <span class="hits">1</span>
           
-          <code class="ruby">    it &quot;is redirected back to signin form if wrong credentials given&quot; do</code>
+          <code class="ruby">    it &quot;is redirected back to original page if wrong credentials given&quot; do</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="17">
           <span class="hits">1</span>
           
-          <code class="ruby">      visit signin_path</code>
+          <code class="ruby">      visit breweries_path</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="18">
@@ -5057,7 +5057,7 @@
         <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
-          <code class="ruby">      click_button(&#39;Log in&#39;)</code>
+          <code class="ruby">      click_button(&#39;Sign in&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
@@ -5069,7 +5069,7 @@
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
-          <code class="ruby">      expect(current_path).to eq(signin_path)</code>
+          <code class="ruby">      expect(current_path).to eq(breweries_path)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="23">
@@ -6401,7 +6401,7 @@
         <li class="covered" data-hits="7" data-linenumber="4">
           <span class="hits">7</span>
           
-          <code class="ruby">    visit signin_path</code>
+          <code class="ruby">    visit breweries_path</code>
         </li>
       
         <li class="covered" data-hits="7" data-linenumber="5">
@@ -6419,7 +6419,7 @@
         <li class="covered" data-hits="7" data-linenumber="7">
           <span class="hits">7</span>
           
-          <code class="ruby">    click_button(&#39;Log in&#39;)</code>
+          <code class="ruby">    click_button(&#39;Sign in&#39;)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">

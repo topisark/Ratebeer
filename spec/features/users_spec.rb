@@ -13,13 +13,13 @@ describe "User" do
       expect(page).to have_content 'Pekka'
     end
 
-    it "is redirected back to signin form if wrong credentials given" do
-      visit signin_path
+    it "is redirected back to original page if wrong credentials given" do
+      visit breweries_path
       fill_in('username', with:'Pekka')
       fill_in('password', with:'wrong')
-      click_button('Log in')
+      click_button('Sign in')
 
-      expect(current_path).to eq(signin_path)
+      expect(current_path).to eq(breweries_path)
       expect(page).to have_content 'Username and password do not match!'
     end
   end
