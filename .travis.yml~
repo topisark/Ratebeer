@@ -1,0 +1,24 @@
+language: ruby
+rvm:
+- 2.0.0
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - rackup  # start a Web server
+  - sleep 3 # give Web server some time to bind to sockets, etc
+- bundle exec rails server -d
+script:
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: TWCsg2UUqWSewENCDly7CEc/rcW6dt0xHweVDh7CdCrGwQfOYBclEuyn+uJVKQzBU7mMSkgBppiBYvXoMz0zsHSfdAnaZ7PSejIA9tIVu7jZScY4cROPNxAzCh+D0+uh124Gv3bqPaDcJ+jjJO5ZZhGPVo6qIpW3iWewS0LHWEc=
+  app: topinoluet
+  on:
+    repo: topisark/Ratebeer
+run:
+    - "rake db:migrate"
