@@ -38,14 +38,17 @@ function BreweriesController($scope, $http) {
         $scope.breweries = data;
     });
 
-    $http.get('breweries.json').success( function(data, status, headers, config) {
-        $scope.testbreweries = data;
-    });
-
     $scope.order = 'name';
 
     $scope.click = function (order){
         $scope.order = order;
+        console.log(order);
+    }
+
+    $scope.activeOrder = 'name';
+
+    $scope.activeClick = function (order){
+        $scope.activeOrder = order;
         console.log(order);
     }
 
