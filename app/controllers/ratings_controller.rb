@@ -3,6 +3,8 @@ class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   def index
+    @topBreweries = Brewery.top(3)
+    @topBeers = Beer.top(3)
     @ratings = Rating.all
   end
 
