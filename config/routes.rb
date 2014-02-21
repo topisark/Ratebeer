@@ -27,4 +27,8 @@ Ratebeer::Application.routes.draw do
     post 'toggle_activity', on: :member
   end
 
+  resources :memberships do
+    post 'toggle_membership', on: :member
+  end
+
 end
