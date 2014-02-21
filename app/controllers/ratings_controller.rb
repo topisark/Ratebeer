@@ -6,6 +6,7 @@ class RatingsController < ApplicationController
     @topUsers = User.top(3)
     @topBreweries = Brewery.top(3)
     @topBeers = Beer.top(3)
+    @topStyles = Style.top(3)
     @ratings = Rating.all
   end
 

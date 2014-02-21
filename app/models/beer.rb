@@ -17,6 +17,3 @@ class Beer < ActiveRecord::Base
   end
 
 end
-
-
-#f063efd4be83194eefec2cd139c7cad8
