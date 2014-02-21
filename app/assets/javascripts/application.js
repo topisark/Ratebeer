@@ -18,7 +18,7 @@
 //= require angular
 //= require_tree .
 
-function BeersController($scope, $http) {
+BeersController = ['$scope', '$http', function($scope, $http) {
     $http.get('beers.json').success( function(data, status, headers, config) {
         $scope.beers = data;
     });
@@ -31,9 +31,9 @@ function BeersController($scope, $http) {
     }
 
     $scope.searchText = '';
-}
+}]
 
-function BreweriesController($scope, $http) {
+BreweriesController = ['$scope', '$http', function($scope, $http) {
     $http.get('breweries.json').success( function(data, status, headers, config) {
         $scope.breweries = data;
     });
@@ -53,7 +53,7 @@ function BreweriesController($scope, $http) {
     }
 
     $scope.searchText = '';
-}
+}]
 
 
 
