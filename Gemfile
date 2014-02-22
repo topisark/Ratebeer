@@ -28,6 +28,7 @@ gem 'jquery-turbolinks'
 gem 'httparty'
 gem 'bootstrap_form'
 gem 'byebug', group: [:development, :test]
+gem 'rack-mini-profiler'
 
 gem 'bootstrap-sass'
 group :development do
