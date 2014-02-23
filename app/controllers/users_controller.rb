@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.includes(:beers, :ratings).all
+    unless fragment_exist?('userlist')
+      @users = User.includes(:beers, :ratings).all
+    end
   end
 
   # GET /users/1
@@ -24,6 +26,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    expire_fragment('userlist')
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -41,6 +44,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    expire_fragment('userlist')
     respond_to do |format|
       if user_params[:username].nil? and @user == current_user and @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -55,6 +59,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    expire_fragment('userlist')
     @user.destroy if @user == current_user
     session[:user_id] = nil
     respond_to do |format|
@@ -64,13 +69,13 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:username, :password, :password_confirmation)
+  end
 end

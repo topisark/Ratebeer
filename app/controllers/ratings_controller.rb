@@ -3,11 +3,11 @@ class RatingsController < ApplicationController
   before_action :set_rating, only: [:show, :edit, :update, :destroy]
 
   def index
-    @topUsers = User.top(3)
-    @topBreweries = Brewery.top(3)
-    @topBeers = Beer.top(3)
-    @topStyles = Style.top(3)
-    @ratings = Rating.all
+    @topUsers = Rails.cache.fetch('topusers', expires_in:10.minutes) { User.top(3) }
+    @topBreweries = Rails.cache.fetch('topbreweries', expires_in:10.minutes) { Brewery.top(3) }
+    @topBeers = Rails.cache.fetch('topbeers', expires_in:10.minutes) { Beer.top(3) }
+    @topStyles = Rails.cache.fetch('topstyles', expires_in:10.minutes) { Style.top(3) }
+    @ratings = Rails.cache.fetch('ratings', expires_in:10.minutes) { Rating.all }
   end
 
   def new
