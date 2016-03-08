@@ -6,6 +6,7 @@ SimpleCov.start
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rspec'
+require 'capybara/rails'
 require 'webmock/rspec'
 I18n.enforce_available_locales = false
 
@@ -44,4 +45,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.include Rails.application.routes.url_helpers
+
+  config.include Capybara::DSL
 end
