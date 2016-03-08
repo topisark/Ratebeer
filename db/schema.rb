@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140222184514) do
 
-  create_table "beer_clubs", force: true do |t|
+  create_table "beer_clubs", force: :cascade do |t|
     t.string   "name"
     t.integer  "founded"
     t.string   "city"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140222184514) do
     t.datetime "updated_at"
   end
 
-  create_table "beers", force: true do |t|
+  create_table "beers", force: :cascade do |t|
     t.string   "name"
     t.integer  "brewery_id"
     t.datetime "created_at"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20140222184514) do
     t.integer  "style_id"
   end
 
-  create_table "breweries", force: true do |t|
+  create_table "breweries", force: :cascade do |t|
     t.string   "name"
     t.integer  "year"
     t.datetime "created_at"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140222184514) do
     t.boolean  "active"
   end
 
-  create_table "memberships", force: true do |t|
+  create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "beer_club_id"
     t.datetime "created_at"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140222184514) do
     t.boolean  "confirmed"
   end
 
-  create_table "ratings", force: true do |t|
+  create_table "ratings", force: :cascade do |t|
     t.integer  "score"
     t.integer  "beer_id"
     t.datetime "created_at"
@@ -53,14 +53,14 @@ ActiveRecord::Schema.define(version: 20140222184514) do
     t.integer  "user_id"
   end
 
-  create_table "styles", force: true do |t|
+  create_table "styles", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
