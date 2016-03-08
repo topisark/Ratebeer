@@ -3,19 +3,12 @@ BreweriesController = ['$scope', '$http', function($scope, $http) {
         $scope.breweries = data;
     });
 
-    $scope.order = 'name';
-
-    $scope.click = function (order){
-        $scope.order = order;
-        console.log(order);
-    }
-
     $scope.activeOrder = 'name';
 
-    $scope.activeClick = function (order){
+    $scope.orderClick = function (order){
         $scope.activeOrder = order;
         console.log(order);
     }
 
-    $scope.searchText = '';
+
 }]
