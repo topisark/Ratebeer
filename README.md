@@ -1,6 +1,5 @@
-Web-palvelinohjelmointi (Ruby-on-Rails)
+TopinOluet (Rails & AngularJS)
 =======
-Topi Sarkkinen
 
 Heroku: http://topinoluet.herokuapp.com/breweries
 
