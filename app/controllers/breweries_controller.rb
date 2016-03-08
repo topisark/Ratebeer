@@ -8,7 +8,6 @@ class BreweriesController < ApplicationController
   def index
     @breweries = Brewery.all
     @active_breweries = Brewery.active
-    @retired_breweries = Brewery.retired
   end
 
   # GET /breweries/1

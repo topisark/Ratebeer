@@ -1,8 +1,6 @@
 <h1>Breweries</h1>
 
-<h2>Active</h2>
-
-<p>Number of active breweries: <%= @active_breweries.count %></p>
+<p>Number of breweries: <%= @active_breweries.count %></p>
 
 <div ng-app ng-controller="BreweriesController">
   <p><input type="text" class="form-control" placeholder="Search" ng-model="activeSearchText"></p>
@@ -13,24 +11,6 @@
     <th> <a ng-click="activeClick('beers.count')">Beers</a> </th>
     </thead>
     <tr ng-repeat="brewery in breweries | orderBy:activeOrder | filter:activeSearchText | filter:'true'">
-      <td> <a ng-href="breweries/{{brewery.id}}"> {{brewery.name}} </a> </td>
-      <td>{{brewery.year}}</td>
-      <td>{{brewery.beers.count}}</td>
-    </tr>
-  </table>
-
-  <h2>Retired</h2>
-
-  <p>Number of retired breweries: <%= @retired_breweries.count %></p>
-
-  <p><input type="text" class="form-control" placeholder="Search" ng-model="searchText"></p>
-  <table class="table table-hover">
-    <thead>
-    <th> <a ng-click="click('name')">Name</a> </th>
-    <th> <a ng-click="click('year')">Year</a> </th>
-    <th> <a ng-click="click('beers.count')">Beers</a> </th>
-    </thead>
-    <tr ng-repeat="brewery in breweries | orderBy:order | filter:searchText | filter:'false'">
       <td> <a ng-href="breweries/{{brewery.id}}"> {{brewery.name}} </a> </td>
       <td>{{brewery.year}}</td>
       <td>{{brewery.beers.count}}</td>

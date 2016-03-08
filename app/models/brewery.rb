@@ -6,7 +6,6 @@ class Brewery < ActiveRecord::Base
   validates :year, :inclusion => { :in => proc { 1042..0.years.ago.year } }
 
   scope :active, -> { where active:true }
-  scope :retired, -> { where active:[nil,false] }
 
   def to_s
     name
