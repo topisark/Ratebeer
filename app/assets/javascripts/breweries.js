@@ -7,8 +7,6 @@ BreweriesController = ['$scope', '$http', function($scope, $http) {
 
     $scope.orderClick = function (order){
         $scope.activeOrder = order;
-        console.log(order);
     }
-
 
 }]
