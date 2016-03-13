@@ -48,8 +48,3 @@ describe "Rating" do
     expect(page).to have_content("anonymous 10")
   end
 end
-
-def create_beer_with_rating(score, user)
-  beer = FactoryGirl.create(:beer)
-  FactoryGirl.create(:rating, score:score, beer:beer, user:user)
-end

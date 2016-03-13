@@ -23,6 +23,7 @@ describe "User" do
       expect(page).to have_content 'Username and password do not match!'
     end
   end
+
   it "when signed up with good credentials, is added to the system" do
     visit signup_path
     fill_in('user_username', with:'Brian')
@@ -40,6 +41,15 @@ describe "User" do
     visit user_path(user)
     expect(page).to have_content 'Has 1 rating'
   end
+
+  it "his page displays the correct average rating" do
+    sign_in(username:"Pekka", password:"Foobar1")
+    create_beer_with_rating(10, user)
+    create_beer_with_rating(30, user)
+    visit user_path(user)
+    expect(page).to have_content 'average 20'
+  end
+
 
   it "can delete his own ratings" do
     sign_in(username:"Pekka", password:"Foobar1")

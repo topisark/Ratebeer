@@ -56,7 +56,12 @@ describe User do
       expect(User.count).to eq(1)
     end
 
-    it "and with two ratings, has the correct average rating" do
+    it "with no ratings has no average rating" do
+      expect(user.ratings.count).to equal(0)
+      expect(user.average_rating).to equal(nil)
+    end
+
+    it "with two ratings, has the correct average rating" do
       rating = Rating.new score:10
       rating2 = Rating.new score:20
 
@@ -67,16 +72,9 @@ describe User do
       expect(user.average_rating).to eq(15.0)
     end
   end
+
+
+
 end
 
-def create_beers_with_ratings(*scores, user)
-  scores.each do |score|
-    create_beer_with_rating(score, user)
-  end
-end
 
-def create_beer_with_rating(score, user)
-  beer = FactoryGirl.create(:beer)
-  FactoryGirl.create(:rating, score:score, beer:beer, user:user)
-  return beer
-end
