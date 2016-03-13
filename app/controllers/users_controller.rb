@@ -4,9 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    unless fragment_exist?('userlist')
       @users = User.includes(:beers, :ratings).all
-    end
+
+      respond_to do |format|
+        format.json { render json: @users.to_json(:include => :ratings, :except => :password_digest) }
+        format.html
+      end
   end
 
   # GET /users/1

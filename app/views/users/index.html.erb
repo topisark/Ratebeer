@@ -1,20 +1,18 @@
 <h1>Users</h1>
 
-<% cache 'userlist', skip_digest: true do %>
-    <table class="table table-hover">
-      <thead>
-      <th> </th>
-      <th> rated beers </th>
-      <th> total ratings </th>
-      </thead>
-      <tbody>
-      <% @users.each do |user| %>
-          <tr>
-            <td><%= link_to user.username, user %></td>
-            <td><%= user.beers.size %></td>
-            <td><%= user.ratings.size %></td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-<% end %>
+<div ng-controller="UsersController">
+
+  <p><input type="text" class="form-control" placeholder="Search" ng-model="searchText"></p>
+
+  <table class="table table-hover">
+
+    <th>Name</th>
+    <th>Number of ratings</th>
+    <tr ng-repeat="user in users">
+      <td><a ng-href="users/{{user.id}}">{{user.username}}</a></td>
+      <td>{{user.ratings.length}}</td>
+    </tr>
+
+  </table>
+
+</div>
