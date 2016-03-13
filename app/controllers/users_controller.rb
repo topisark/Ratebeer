@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       @users = User.includes(:beers, :ratings).all
 
       respond_to do |format|
-        format.json { render json: @users.to_json(:include => :ratings, :except => :password_digest) }
+        format.json { render json: @users.to_json(:include => :ratings, :except => [:password_digest, :created_at, :updated_at]) }
         format.html
       end
   end

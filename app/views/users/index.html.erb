@@ -8,7 +8,7 @@
 
     <th>Name</th>
     <th>Number of ratings</th>
-    <tr ng-repeat="user in users">
+    <tr ng-repeat="user in users | filter:searchText">
       <td><a ng-href="users/{{user.id}}">{{user.username}}</a></td>
       <td>{{user.ratings.length}}</td>
     </tr>
