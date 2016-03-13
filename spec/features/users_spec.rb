@@ -3,7 +3,8 @@ require 'spec_helper'
 include OwnTestHelper
 
 describe "User" do
-  let!(:user) { FactoryGirl.create :user }
+
+   let!(:user) { FactoryGirl.create :user }
 
   describe "who has signed up" do
     it "can signin with right credentials" do
@@ -59,5 +60,38 @@ describe "User" do
       click_link('Delete')
     }.to change{Rating.count}.by(-1)
   end
+
+end
+
+describe "Users page" do
+
+  let!(:user) { FactoryGirl.create :user }
+  let!(:user2) { FactoryGirl.create :user2 }
+
+  before :all do
+    self.use_transactional_fixtures = false
+    WebMock.disable_net_connect!(allow_localhost:true)
+  end
+
+  before :each do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.start
+  end
+
+  after :each do
+    DatabaseCleaner.clean
+  end
+
+  after :all do
+    self.use_transactional_fixtures = true
+  end
+
+  it "can dynamically search users",js:true do
+    visit users_path
+    fill_in("userSearch", with: "Topi")
+    expect(page).to have_no_content "Pekka"
+    expect(page).to have_content "Topi"
+  end
+
 end
 
