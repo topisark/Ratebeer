@@ -1,0 +1,13 @@
+<p><input type="text" class="form-control" placeholder="Search" ng-model="searchText"></p>
+<table class="table table-hover">
+    <thead>
+    <th> <a ng-click="click('name')">Name</a> </th>
+    <th> <a ng-click="click('style.name')">Style</a> </th>
+    <th> <a ng-click="click('brewery.name')">Brewery</a> </th>
+    </thead>
+    <tr ng-repeat="beer in beers | orderBy:order | filter:searchText">
+        <td> <a ng-href="beers/{{beer.id}}"> {{beer.name}} </a> </td>
+        <td> <a ng-href="styles/{{beer.style.id}}"> {{beer.style.name}} </a> </td>
+        <td> <a ng-href="breweries/{{beer.brewery.id}}"> {{beer.brewery.name}} </a> </td>
+    </tr>
+</table>
