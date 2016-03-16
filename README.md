@@ -2,6 +2,7 @@ TopinOluet (Rails & AngularJS)
 =======
 
 Branch master: Rails & some AngularJS for dynamic data display
+
 Branch angular-routing: Rails & entirely AngularJS frontend (work in progress)
 
 Heroku: http://topinoluet.herokuapp.com/
