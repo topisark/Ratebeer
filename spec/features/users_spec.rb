@@ -87,6 +87,8 @@ describe "Users page" do
 
   it "can dynamically search users",js:true do
     visit users_path
+    expect(page).to have_content "Topi"
+    expect(page).to have_content "Pekka"
     fill_in("userSearch", with: "Topi")
     expect(page).to have_no_content "Pekka"
     expect(page).to have_content "Topi"

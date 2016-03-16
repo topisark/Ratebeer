@@ -16,6 +16,7 @@ group :test do
   gem 'webmock'
   gem 'selenium-webdriver'
   gem 'database_cleaner', '< 1.1.0'
+  gem 'coveralls', require: false
 end
 
 group :production do
@@ -61,5 +62,3 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-gem 'coveralls', require: false

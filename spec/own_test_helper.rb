@@ -19,4 +19,9 @@ module OwnTestHelper
     return beer
   end
 
+  def create_beer_with_rating_for_brewery(brewery, score)
+    beer = FactoryGirl.create(:beer, brewery:brewery)
+    FactoryGirl.create(:rating, score:score, beer:beer)
+  end
+
 end
