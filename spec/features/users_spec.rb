@@ -1,6 +1,5 @@
 require 'spec_helper'
-
-include OwnTestHelper
+require 'own_test_helper'
 
 describe "User" do
 
