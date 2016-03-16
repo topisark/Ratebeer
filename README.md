@@ -9,4 +9,4 @@ Heroku: http://topinoluet.herokuapp.com/
 
 [![Build Status](https://travis-ci.org/topisark/TopinOluet.png?branch=master)](https://travis-ci.org/topisark/Ratebeer)
 
-[![Code Climate](https://codeclimate.com/github/topisark/Ratebeer.png)](https://codeclimate.com/github/topisark/Ratebeer)
+[![Coverage Status](https://coveralls.io/repos/github/topisark/TopinOluet/badge.svg?branch=master)](https://coveralls.io/github/topisark/TopinOluet?branch=master)
