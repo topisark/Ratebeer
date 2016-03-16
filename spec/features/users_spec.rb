@@ -5,12 +5,23 @@ describe "User" do
 
    let!(:user) { FactoryGirl.create :user }
 
+   it "when signed up with good credentials, is added to the system" do
+     visit signup_path
+     fill_in('user_username', with:'Brian')
+     fill_in('user_password', with:'Secret55')
+     fill_in('user_password_confirmation', with:'Secret55')
+
+     expect{
+       click_button('Create User')
+     }.to change{User.count}.by(1)
+   end
+
   describe "who has signed up" do
     it "can signin with right credentials" do
-      sign_in(username:"Pekka", password:"Foobar1")
+      sign_in(username:user.username, password:user.password)
 
       expect(page).to have_content 'Welcome back!'
-      expect(page).to have_content 'Pekka'
+      expect(page).to have_content user.username
     end
 
     it "is redirected back to original page if wrong credentials given" do
@@ -22,43 +33,37 @@ describe "User" do
       expect(current_path).to eq(breweries_path)
       expect(page).to have_content 'Username and password do not match!'
     end
+
   end
 
-  it "when signed up with good credentials, is added to the system" do
-    visit signup_path
-    fill_in('user_username', with:'Brian')
-    fill_in('user_password', with:'Secret55')
-    fill_in('user_password_confirmation', with:'Secret55')
+   describe "who has signed in" do
+     before :each do
+       sign_in(username:user.username, password:user.password)
+     end
 
-    expect{
-      click_button('Create User')
-    }.to change{User.count}.by(1)
-  end
+     it "sees his own ratings" do
+       create_beer_with_rating(15, user)
+       visit user_path(user)
+       expect(page).to have_content 'Has 1 rating'
+       expect(page).to have_content '15'
+     end
 
-  it "sees his own ratings" do
-    sign_in(username:"Pekka", password:"Foobar1")
-    create_beer_with_rating(15, user)
-    visit user_path(user)
-    expect(page).to have_content 'Has 1 rating'
-  end
+     it "his page displays the correct average rating" do
+       create_beer_with_rating(10, user)
+       create_beer_with_rating(30, user)
+       visit user_path(user)
+       expect(page).to have_content 'average 20'
+     end
 
-  it "his page displays the correct average rating" do
-    sign_in(username:"Pekka", password:"Foobar1")
-    create_beer_with_rating(10, user)
-    create_beer_with_rating(30, user)
-    visit user_path(user)
-    expect(page).to have_content 'average 20'
-  end
+     it "can delete his own ratings" do
+       create_beer_with_rating(15, user)
+       visit user_path(user)
+       expect{
+         click_link('Delete')
+       }.to change{Rating.count}.by(-1)
+     end
 
-
-  it "can delete his own ratings" do
-    sign_in(username:"Pekka", password:"Foobar1")
-    create_beer_with_rating(15, user)
-    visit user_path(user)
-    expect{
-      click_link('Delete')
-    }.to change{Rating.count}.by(-1)
-  end
+   end
 
 end
 
@@ -87,11 +92,11 @@ describe "Users page" do
 
   it "can dynamically search users",js:true do
     visit users_path
-    expect(page).to have_content "Topi"
-    expect(page).to have_content "Pekka"
-    fill_in("userSearch", with: "Topi")
-    expect(page).to have_no_content "Pekka"
-    expect(page).to have_content "Topi"
+    expect(page).to have_content user.username
+    expect(page).to have_content user2.username
+    fill_in("userSearch", with: user.username)
+    expect(page).to have_no_content user2.username
+    expect(page).to have_content user.username
   end
 
 end

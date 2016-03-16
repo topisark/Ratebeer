@@ -53,6 +53,4 @@ describe Brewery do
 
   end
 
-
-
 end

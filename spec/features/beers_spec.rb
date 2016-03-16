@@ -6,7 +6,7 @@ describe Beer do
   let!(:style) {FactoryGirl.create(:style)}
 
   before :each do
-    sign_in(username:"Pekka", password:"Foobar1")
+    sign_in(username:user.username, password:user.password)
   end
 
   it "can't be created if name not valid" do
