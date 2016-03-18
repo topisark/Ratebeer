@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'own_test_helper'
 
 describe "User" do
 
@@ -72,23 +71,7 @@ describe "Users page" do
   let!(:user) { FactoryGirl.create :user }
   let!(:user2) { FactoryGirl.create :user2 }
 
-  before :all do
-    self.use_transactional_fixtures = false
-    WebMock.disable_net_connect!(allow_localhost:true)
-  end
-
-  before :each do
-    DatabaseCleaner.strategy = :truncation
-    DatabaseCleaner.start
-  end
-
-  after :each do
-    DatabaseCleaner.clean
-  end
-
-  after :all do
-    self.use_transactional_fixtures = true
-  end
+  set_configurations_for_js_tests
 
   it "lists existing users",js:true do
     visit users_path

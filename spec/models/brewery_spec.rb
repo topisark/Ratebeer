@@ -1,5 +1,4 @@
 require 'spec_helper'
-include OwnTestHelper
 
 describe Brewery do
 

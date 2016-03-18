@@ -34,4 +34,5 @@ FactoryGirl.define do
     brewery
     style
   end
+
 end
