@@ -1,4 +1,4 @@
-app.controller('BeersController', function($scope, $http) {
+var BeersController = ['$scope', '$http', function($scope, $http) {
 
     $http.get('beers.json').success( function(data, status, headers, config) {
         $scope.beers = data;
@@ -11,4 +11,4 @@ app.controller('BeersController', function($scope, $http) {
         console.log(order);
     }
 
-});
+}];
