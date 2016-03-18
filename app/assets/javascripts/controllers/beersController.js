@@ -1,6 +1,6 @@
 app.controller("BeersController", ['$scope', '$http', function($scope, $http) {
 
-    $http.get('beers.json').success( function(data, status, headers, config) {
+    $http.get('beers.json').success( function(data) {
         $scope.beers = data;
     });
 
@@ -8,7 +8,6 @@ app.controller("BeersController", ['$scope', '$http', function($scope, $http) {
 
     $scope.click = function (order){
         $scope.order = order;
-        console.log(order);
     }
 
 }]);

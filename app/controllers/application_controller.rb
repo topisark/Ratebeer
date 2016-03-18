@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  # määritellään, että metodi current_user tulee käyttöön myös näkymissä
+  #Make the method available in views
   helper_method :current_user
 
   def current_user
