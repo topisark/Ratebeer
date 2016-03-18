@@ -1,4 +1,5 @@
 app.controller('BreweriesController', function($scope, $http) {
+
     $http.get('breweries.json').success( function(data, status, headers, config) {
         $scope.breweries = data;
     });

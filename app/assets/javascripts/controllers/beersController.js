@@ -1,4 +1,5 @@
-BeersController = ['$scope', '$http', function($scope, $http) {
+app.controller('BeersController', function($scope, $http) {
+
     $http.get('beers.json').success( function(data, status, headers, config) {
         $scope.beers = data;
     });
@@ -10,5 +11,4 @@ BeersController = ['$scope', '$http', function($scope, $http) {
         console.log(order);
     }
 
-    $scope.searchText = '';
-}]
+});

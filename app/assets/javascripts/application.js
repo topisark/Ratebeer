@@ -17,6 +17,7 @@
 //= require bootstrap
 //= require angular
 //= require_tree .
+//= require_tree ./controllers
 
 
 

@@ -237,7 +237,6 @@ DEPENDENCIES
   bootstrap_form
   byebug
   capybara
-  coffee-rails (~> 4.0.0)
   coveralls
   database_cleaner (< 1.1.0)
   factory_girl_rails
@@ -254,7 +253,6 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   selenium-webdriver
-  simplecov
   sqlite3
   therubyracer
   turbolinks
