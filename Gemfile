@@ -12,10 +12,10 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'simplecov', require: false
   gem 'webmock'
   gem 'selenium-webdriver'
   gem 'database_cleaner', '< 1.1.0'
+  gem 'coveralls', require: false
 end
 
 group :production do
@@ -43,9 +43,6 @@ gem 'sass-rails', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
@@ -62,4 +59,3 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-

@@ -1,8 +1,13 @@
 TopinOluet (Rails & AngularJS)
 =======
 
-Heroku: http://topinoluet.herokuapp.com/breweries
+[![Build Status](https://travis-ci.org/topisark/TopinOluet.svg?branch=master)](https://travis-ci.org/topisark/TopinOluet)
+[![Coverage Status](https://coveralls.io/repos/github/topisark/TopinOluet/badge.svg?branch=master)](https://coveralls.io/github/topisark/TopinOluet?branch=master)
+[![Code Climate](https://codeclimate.com/github/topisark/TopinOluet/badges/gpa.svg)](https://codeclimate.com/github/topisark/TopinOluet)
 
-[![Build Status](https://travis-ci.org/topisark/TopinOluet.png?branch=master)](https://travis-ci.org/topisark/Ratebeer)
+Branch master: Rails & some AngularJS for dynamic data display
 
-[![Code Climate](https://codeclimate.com/github/topisark/Ratebeer.png)](https://codeclimate.com/github/topisark/Ratebeer)
+Branch angular-routing: Rails & entirely AngularJS frontend (work in progress)
+
+Heroku: http://topinoluet.herokuapp.com/
+

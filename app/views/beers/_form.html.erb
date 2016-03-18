@@ -8,6 +8,6 @@
     <div class="form-group form-inline">
       <%= f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name, selected: @beer.brewery_id) %>
     </div>
-    <%= f.submit "Create Beer", class: "btn btn-primary" %>
+    <%= f.submit class: "btn btn-primary" %>
 <% end %>
 
