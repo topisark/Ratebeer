@@ -21,7 +21,6 @@ describe "Beers (integration tests)" do
     fill_in('beer_name', with: "TestBeer")
     click_button "Create Beer"
     expect(Beer.count).to eq(1)
-    expect(page).to have_content "Listing beers"
   end
 
   describe "when a beer has been added" do
@@ -36,7 +35,7 @@ describe "Beers (integration tests)" do
     it "it can be modified" do
       visit beer_path(beer)
       click_link "Edit"
-      fill_in('beer_name', with: "ModifiedBeer")
+      fill_in('beer_name', with: beer.name.reverse)
       click_button "Create Beer"
       page.should have_content "Beer was successfully updated"
     end

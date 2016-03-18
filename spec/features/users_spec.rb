@@ -58,6 +58,20 @@ describe "Users (integration tests)" do
        }.to change{Rating.count}.by(-1)
      end
 
+     it "can change his password" do
+       click_link "Edit profile"
+       fill_in('user_password', with:'Newpass88')
+       fill_in('user_password_confirmation', with:'Newpass88')
+       click_button "Update User"
+       page.should have_content "User was successfully updated"
+     end
+
+    it "can log out" do
+      click_link user.username #This opens the user dropdown menu
+      click_link "Log out"
+      page.should have_button "Sign in"
+    end
+
    end
 
 end

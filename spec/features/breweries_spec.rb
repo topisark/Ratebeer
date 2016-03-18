@@ -59,7 +59,7 @@ describe "Breweries (integration tests)" do
 
     it "it can be modified" do
       click_link "Edit"
-      fill_in('brewery_name', with: "ModifiedBrewery")
+      fill_in('brewery_name', with: brewery.name.reverse)
       click_button "Create Brewery"
       page.should have_content "Brewery was successfully updated"
     end
@@ -89,8 +89,16 @@ describe "Breweries page" do
     end
 
     it "shows the existing breweries", js: true do
-      @breweries.each do |brewery_name|
-        page.should have_content brewery_name
+      @breweries.each do |brewery|
+        page.should have_content brewery
+      end
+    end
+
+    it "can be dynamically searched",js:true do
+      fill_in('brewerySearch', with: @breweries.first)
+      page.should have_content @breweries.first
+      @breweries.from(1).each do |brewery|
+        page.should have_no_content brewery
       end
     end
 
