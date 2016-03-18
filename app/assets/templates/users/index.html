@@ -1,0 +1,9 @@
+<p><input type="text" class="form-control" placeholder="Search" ng-model="searchText"></p>
+<table class="table table-hover">
+    <thead>
+    <th> <a ng-click="click('name')">Name</a> </th>
+    </thead>
+    <tr ng-repeat="user in users | orderBy:order | filter:searchText">
+        <td> <a ng-href="users/{{user.id}}"> {{user.username}} </a> </td>
+    </tr>
+</table>
