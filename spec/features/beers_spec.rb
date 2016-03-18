@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Beer do
+describe "Beers (integration tests)" do
   let!(:user) { FactoryGirl.create :user }
 
   before :each do
@@ -18,10 +18,29 @@ describe Beer do
     FactoryGirl.create(:style)
     FactoryGirl.create(:brewery)
     visit new_beer_path
-    fill_in('beer_name', with: "Testiolut")
+    fill_in('beer_name', with: "TestBeer")
     click_button "Create Beer"
     expect(Beer.count).to eq(1)
     expect(page).to have_content "Listing beers"
+  end
+
+  describe "when a beer has been added" do
+    let!(:beer) { FactoryGirl.create :beer }
+
+    it "its page can be visited" do
+      visit beer_path(beer)
+      page.should have_content beer.name
+      page.should have_content beer.brewery.name
+    end
+
+    it "it can be modified" do
+      visit beer_path(beer)
+      click_link "Edit"
+      fill_in('beer_name', with: "ModifiedBeer")
+      click_button "Create Beer"
+      page.should have_content "Beer was successfully updated"
+    end
+
   end
 
 end
@@ -30,10 +49,18 @@ describe "Beers page" do
 
   set_configurations_for_js_tests
 
-  let!(:beer) { FactoryGirl.create :beer}
+  let!(:beer) { FactoryGirl.create :beer }
 
-  it "lists beers",js:true do
+  it "lists beers", js: true do
     visit beers_path
+    page.should have_content beer.name
+  end
+
+  it "can dynamically search beers", js: true do
+    visit beers_path
+    fill_in("beerSearch", with: "WrongName")
+    page.should have_no_content beer.name
+    fill_in("beerSearch", with: beer.name)
     page.should have_content beer.name
   end
 

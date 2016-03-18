@@ -47,6 +47,15 @@ def create_beer_with_rating_for_brewery(brewery, score)
   FactoryGirl.create(:rating, score: score, beer: beer)
 end
 
+def create_multiple_breweries
+  breweries = ["Koff", "Karjala", "Schlenkerla"]
+  year = 1896
+  breweries.each do |brewery_name|
+    FactoryGirl.create(:brewery, name: brewery_name, year: year += 1, active: 1)
+  end
+  return breweries
+end
+
 def set_configurations_for_js_tests
   before :all do
     self.use_transactional_fixtures = false

@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe "User" do
+describe "Users (integration tests)" do
 
    let!(:user) { FactoryGirl.create :user }
 
    it "when signed up with good credentials, is added to the system" do
      visit signup_path
-     fill_in('user_username', with:'Brian')
+     fill_in('user_username', with:'Topi')
      fill_in('user_password', with:'Secret55')
      fill_in('user_password_confirmation', with:'Secret55')
 
@@ -38,27 +38,23 @@ describe "User" do
    describe "who has signed in" do
      before :each do
        sign_in(username:user.username, password:user.password)
-     end
-
-     it "sees his own ratings" do
-       create_beer_with_rating(15, user)
-       visit user_path(user)
-       page.should have_content 'Has 1 rating'
-       page.should have_content '15'
-     end
-
-     it "his page displays the correct average rating" do
        create_beer_with_rating(10, user)
        create_beer_with_rating(30, user)
        visit user_path(user)
+     end
+
+     it "sees his own ratings" do
+       page.should have_content "Has #{user.ratings.count} rating"
+       page.should have_content user.ratings.first.beer.name
+     end
+
+     it "his page displays the correct average rating" do
        page.should have_content 'average 20'
      end
 
      it "can delete his own ratings" do
-       create_beer_with_rating(15, user)
-       visit user_path(user)
        expect{
-         click_link('Delete')
+         first(:link, "Delete").click
        }.to change{Rating.count}.by(-1)
      end
 
