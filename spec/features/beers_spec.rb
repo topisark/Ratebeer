@@ -36,7 +36,7 @@ describe "Beers (integration tests)" do
       visit beer_path(beer)
       click_link "Edit"
       fill_in('beer_name', with: beer.name.reverse)
-      click_button "Create Beer"
+      click_button "Update Beer"
       page.should have_content "Beer was successfully updated"
     end
 

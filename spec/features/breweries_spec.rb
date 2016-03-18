@@ -60,7 +60,7 @@ describe "Breweries (integration tests)" do
     it "it can be modified" do
       click_link "Edit"
       fill_in('brewery_name', with: brewery.name.reverse)
-      click_button "Create Brewery"
+      click_button "Update Brewery"
       page.should have_content "Brewery was successfully updated"
     end
 
