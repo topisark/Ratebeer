@@ -36,9 +36,15 @@ describe "Breweries page" do
       visit breweries_path
     end
 
-    it "lists their total number", js: true do
+    it "lists their total number" do
       visit breweries_path
       expect(page).to have_content "Number of breweries: #{@breweries.count}"
+    end
+
+    it "shows the existing breweries", js:true do
+      @breweries.each do |brewery_name|
+        page.should have_content brewery_name
+      end
     end
 
   end
