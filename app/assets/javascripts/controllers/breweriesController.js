@@ -1,4 +1,6 @@
-app.controller("BreweriesController", ['$scope', '$http', function($scope, $http) {
+app.controller("BreweriesController", ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+
+    var orderBy = $filter('orderBy');
 
     $http.get('breweries.json').success( function(data, status, headers, config) {
         $scope.breweries = data;
@@ -7,7 +9,7 @@ app.controller("BreweriesController", ['$scope', '$http', function($scope, $http
     $scope.activeOrder = 'name';
 
     $scope.orderClick = function (order){
-        $scope.activeOrder = order;
+        $scope.breweries = orderBy($scope.breweries, order)
     }
 
 }]);

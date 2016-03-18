@@ -1,3 +1,4 @@
+
 <h1>Breweries</h1>
 
 <p>Number of breweries: <%= @active_breweries.count %></p>
@@ -10,12 +11,15 @@
     <th> <a ng-click="orderClick('year')">Year</a> </th>
     <th> <a ng-click="orderClick('beers.count')">Beers</a> </th>
     </thead>
-    <tr ng-repeat="brewery in breweries | orderBy:activeOrder | filter:searchText | filter:'true'">
+    <tbody ui-sortable ng-model="breweries">
+    <tr ng-repeat="brewery in breweries | filter:searchText">
       <td> <a ng-href="breweries/{{brewery.id}}"> {{brewery.name}} </a> </td>
       <td>{{brewery.year}}</td>
       <td>{{brewery.beers.count}}</td>
     </tr>
+    </tbody>
   </table>
+
 </div>
 
 <br>

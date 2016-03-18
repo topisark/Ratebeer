@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
+gem 'bundler', '>= 1.8.4'
+gem 'angularjs-rails'
 
 group :development, :test do
   gem 'sqlite3'
@@ -23,7 +25,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'angularjs-rails'
 gem 'jquery-turbolinks'
 gem 'httparty'
 gem 'bootstrap_form'
@@ -47,6 +48,7 @@ gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -57,4 +59,8 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-angular-ui-sortable'
 end
