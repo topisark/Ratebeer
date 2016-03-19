@@ -5,12 +5,9 @@ class BeermappingApi
     Rails.cache.fetch(city, :expires_in => 7.days) { fetch_places_in(city) }
   end
 
-def self.place_with_id(id)
-  Rails.cache.fetch(id, :expires_in => 7.days) { fetch_place_with_id(id)}
-end
-
-
-  private
+  def self.place_with_id(id)
+    Rails.cache.fetch(id, :expires_in => 7.days) { fetch_place_with_id(id) }
+  end
 
   def self.fetch_place_with_id(id)
     url = "http://beermapping.com/webservice/locquery/f063efd4be83194eefec2cd139c7cad8/#{id}"
@@ -28,7 +25,7 @@ end
     return [] if places.is_a?(Hash) and places['id'].nil?
 
     places = [places] if places.is_a?(Hash)
-    places.inject([]) do | set, place |
+    places.inject([]) do |set, place|
       set << Place.new(place)
     end
   end

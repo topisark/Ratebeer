@@ -31,7 +31,7 @@ describe Brewery do
     it "correct brewery is the top brewery when only one has rated beers" do
       brewery1 = Brewery.create name:"Brewery1", year:1674
       create_beer_with_rating_for_brewery(brewery1, 20)
-      expect(Brewery.top(1).first).to eq(brewery1)
+      expect(Brewery.top(Brewery, 1).first).to eq(brewery1)
     end
 
     it "correct brewery is the top brewery when many have rated beers" do
@@ -41,13 +41,12 @@ describe Brewery do
       create_beer_with_rating_for_brewery(brewery1, 20)
       create_beer_with_rating_for_brewery(brewery2, 40)
 
-      expect(Brewery.top(1).first).to eq(brewery2)
+      expect(Brewery.top(Brewery, 1).first).to eq(brewery2)
     end
 
     it "top breweries only returns desired amount of breweries" do
-      brewery1 = Brewery.create name:"Brewery1", year:1674
-      brewery2 = Brewery.create name:"Brewery2", year:1674
-      expect(Brewery.top(1).count).to eq(1)
+      create_multiple_breweries
+      expect(Brewery.top(Brewery, 1).count).to eq(1)
     end
 
   end

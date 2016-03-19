@@ -4,9 +4,9 @@ class RatingsController < ApplicationController
 
   def index
     @topUsers = Rails.cache.fetch('topusers', expires_in:10.minutes) { User.top(3) }
-    @topBreweries = Rails.cache.fetch('topbreweries', expires_in:10.minutes) { Brewery.top(3) }
-    @topBeers = Rails.cache.fetch('topbeers', expires_in:10.minutes) { Beer.top(3) }
-    @topStyles = Rails.cache.fetch('topstyles', expires_in:10.minutes) { Style.top(3) }
+    @topBreweries = Rails.cache.fetch('topbreweries', expires_in:10.minutes) { Brewery.top(Brewery, 3) }
+    @topBeers = Rails.cache.fetch('topbeers', expires_in:10.minutes) { Beer.top(Beer, 3) }
+    @topStyles = Rails.cache.fetch('topstyles', expires_in:10.minutes) { Style.top(Style, 3) }
     @ratings = Rails.cache.fetch('ratings', expires_in:10.minutes) { Rating.all }
   end
 

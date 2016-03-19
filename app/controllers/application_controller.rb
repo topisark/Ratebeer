@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+  protect_from_forgery :with => :exception
 
   #Make the method available in views
   helper_method :current_user
@@ -10,10 +10,10 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_that_signed_in
-    redirect_to signin_path, notice:'You need to be signed in!' if current_user.nil?
+    redirect_to signin_path, notice: 'You need to be signed in!' if current_user.nil?
   end
 
   def ensure_that_admin
-    redirect_to signin_path, notice:'You need to sign in with an admin account to do that!' unless current_user.admin?
+    redirect_to signin_path, notice: 'You need to sign in with an admin account to do that!' unless current_user.admin?
   end
 end
