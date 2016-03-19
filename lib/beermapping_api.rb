@@ -17,9 +17,9 @@ class BeermappingApi
   end
 
   def self.fetch_places_in(city)
-    url = "http://stark-oasis-9187.herokuapp.com/api/"
+    url = "http://beermapping.com/webservice/locquery/f063efd4be83194eefec2cd139c7cad8/#{city}"
 
-    response = HTTParty.get "#{url}#{ERB::Util.url_encode(city)}"
+    response = HTTParty.get "#{url}"
     places = response.parsed_response["bmp_locations"]["location"]
 
     return [] if places.is_a?(Hash) and places['id'].nil?
