@@ -6,8 +6,6 @@ app.controller("BreweriesController", ['$scope', '$http', '$filter', function($s
         $scope.breweries = data;
     });
 
-    $scope.activeOrder = 'name';
-
     $scope.orderClick = function (order){
         $scope.breweries = orderBy($scope.breweries, order)
     }
