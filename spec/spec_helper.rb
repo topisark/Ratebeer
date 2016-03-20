@@ -20,6 +20,7 @@ RSpec.configure do |config|
   config.order = "random"
   config.include Rails.application.routes.url_helpers
   config.include Capybara::DSL
+  config.expect_with(:rspec) { |c| c.syntax = [:should, :expect] }
 end
 
 def sign_in(credentials)
