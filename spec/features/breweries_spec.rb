@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe "Breweries (integration tests)" do
   let!(:user) { FactoryGirl.create :user }
+  breweryName = "Bestbrewery"
+  breweryYear = 1990
 
   describe "when user is signed in" do
     before :each do
@@ -16,14 +18,14 @@ describe "Breweries (integration tests)" do
     end
 
     it "can't create a brewery without year" do
-      fill_in('brewery_year', with: 1990)
+      fill_in('brewery_year', with: breweryYear)
       click_button('Create Brewery')
       Brewery.count.should be 0
     end
 
     it "can create a brewery with year and name" do
-      fill_in('brewery_year', with: 1990)
-      fill_in('brewery_name', with: "Kivapanimo")
+      fill_in('brewery_year', with: breweryYear)
+      fill_in('brewery_name', with: breweryName)
       click_button('Create Brewery')
       Brewery.count.should be 1
       page.should have_content "Brewery was successfully created"
@@ -94,7 +96,7 @@ describe "Breweries page" do
       end
     end
 
-    it "can be dynamically searched",js:true do
+    it "can be dynamically searched", js: true do
       fill_in('brewerySearch', with: @breweries.first)
       page.should have_content @breweries.first
       @breweries.from(1).each do |brewery|
